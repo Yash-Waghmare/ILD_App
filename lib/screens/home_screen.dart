@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ild/screens/ild_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -10,11 +11,27 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Home Screen'),
+        backgroundColor: const Color.fromARGB(255, 39, 23, 159),
+      ),
       body: SafeArea(
           child: Center(
-        child: Text('Home Screen'),
-      )),
+              child: ElevatedButton(
+        style: ButtonStyle(
+          backgroundColor:
+              MaterialStateProperty.all(const Color.fromARGB(255, 39, 23, 159)),
+        ),
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const ILDScreen()));
+        },
+        child: const Text(
+          'ILD Screen',
+          style: TextStyle(color: Colors.white),
+        ),
+      ))),
     );
   }
 }
